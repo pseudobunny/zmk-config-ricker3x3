@@ -1,6 +1,6 @@
 if SHIELD_RICKER3x3
 
-config ZMK_RICKER_3x3
+config ZMK_KEYBOARD_NAME
     default "ricker3x3"
 
 endif
