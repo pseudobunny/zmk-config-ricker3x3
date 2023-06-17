@@ -3,8 +3,8 @@
 
 / {
     macros {
-        ctrl_z: zed_em_kay {
-            label = "ZM_zed_em_kay";
+        windows_screenshot: windows_screenshot {
+            label = "ZM_windows_screenshot";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -33,15 +33,15 @@
 
         middle_layer {
             bindings = <
-                &none    &none    &none
-                &none    &none    &none
-                &none    &none    &none
+                &to 0                  &to 1    &to 2
+                &none                  &none    &none
+                &windows_screenshot    &none    &none
             >;
         };
 
         top_layer {
             bindings = <
-                &none    &none   &none
+                &to 0    &to 1   &to 2
                 &none    &none   &none
                 &none    &none   &bootloader
             >;
