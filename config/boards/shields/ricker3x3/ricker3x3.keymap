@@ -1,6 +1,24 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+/ {
+    macros {
+        ctrl_z: zed_em_kay {
+            label = "ZM_zed_em_kay";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_press &kp LGUI>
+                , <&macro_press &kp S>
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp S>
+                ;
+        };
+    };
+};
+
 / {  
     keymap {
         compatible = "zmk,keymap";
