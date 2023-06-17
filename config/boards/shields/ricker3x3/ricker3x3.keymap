@@ -16,6 +16,28 @@
                 , <&macro_release &kp S>
                 ;
         };
+
+        ctrl_z: ctrl_z {
+            label = "ZM_ctrl_z";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Z>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        ctrl_y: ctrl_y {
+            label = "ZM_ctrl_y";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Y>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
     };
 };
 
@@ -26,7 +48,7 @@
         default_layer {
             bindings = <
                 &to 0         &to 1         &to 2
-                &kp K_UNDO    &kp K_REDO    &kp K_PP
+                &ctrl_z       &ctrl_y       &kp K_PP
                 &kp K_CUT     &kp K_COPY    &kp K_PASTE
             >;
         };
@@ -41,7 +63,7 @@
 
         top_layer {
             bindings = <
-                &to 0    &to 1   &to 2
+                &none    &none   &none
                 &none    &none   &none
                 &none    &none   &bootloader
             >;
