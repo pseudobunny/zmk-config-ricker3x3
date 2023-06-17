@@ -1,26 +1,31 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define DEFAULT 0
-#define SPECIAL 1
-
 / {  
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp KP_N7     &kp KP_N8     &kp KP_N9
-                &kp KP_N4     &mo SPECIAL   &kp KP_N6
-                &kp KP_N1     &kp KP_N2     &kp KP_N3
+                &to 0         &to 1         &to 2
+                &kp K_UNDO    &kp K_REDO    &kp K_PP
+                &kp K_CUT     &kp K_COPY    &kp K_PASTE
             >;
         };
 
-        special_layer {
+        middle_layer {
             bindings = <
-                &none    &none        &none
-                &none    &none        &none
-                &none    &kp KP_N3    &bootloader
+                &none    &none    &none
+                &none    &none    &none
+                &none    &none    &none
+            >;
+        };
+
+        top_layer {
+            bindings = <
+                &none    &none   &none
+                &none    &none   &none
+                &none    &none   &bootloader
             >;
         };
     };
