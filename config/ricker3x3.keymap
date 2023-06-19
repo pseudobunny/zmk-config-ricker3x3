@@ -1,0 +1,72 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+
+/ {
+    macros {
+        windows_screenshot: windows_screenshot {
+            label = "ZM_windows_screenshot";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LSHFT>
+                , <&macro_press &kp LGUI>
+                , <&macro_press &kp S>
+                , <&macro_release &kp LSHFT>
+                , <&macro_release &kp LGUI>
+                , <&macro_release &kp S>
+                ;
+        };
+
+        ctrl_z: ctrl_z {
+            label = "ZM_ctrl_z";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Z>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+
+        ctrl_y: ctrl_y {
+            label = "ZM_ctrl_y";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_tap &kp Y>
+                , <&macro_release &kp LCTRL>
+                ;
+        };
+    };
+};
+
+/ {  
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            bindings = <
+                &to 0         &to 1         &to 2
+                &ctrl_z       &ctrl_y       &kp K_PP
+                &kp K_CUT     &kp K_COPY    &kp K_PASTE
+            >;
+        };
+
+        middle_layer {
+            bindings = <
+                &to 0                  &to 1    &to 2
+                &none                  &none    &none
+                &windows_screenshot    &none    &none
+            >;
+        };
+
+        top_layer {
+            bindings = <
+                &none    &none   &none
+                &none    &none   &none
+                &none    &none   &bootloader
+            >;
+        };
+    };
+};
